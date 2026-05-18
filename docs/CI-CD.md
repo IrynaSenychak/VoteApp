@@ -180,20 +180,6 @@ Tags are visible in the **Tags** tab of each GitHub repository.
 
 ---
 
-## Deployment Strategies
-
-### Backend — Blue-Green
-
-Two live environments are maintained simultaneously: staging and production. New code is first deployed to **staging** (`develop`), verified, and only then promoted to **production** (`master`). Render performs zero-downtime deploys — the new instance starts alongside the old one and traffic switches only after a successful health check.
-
-If the health check fails after a deploy, the previous version remains active. Rollback is performed manually via the Render Dashboard (Events → Rollback).
-
-### Frontend — Canary
-
-Vercel atomically replaces the production deployment with each new build. If the post-deploy health check fails the pipeline exits with an error and the previous Vercel deployment stays active. Rollback is performed via `vercel rollback` or through the Vercel Dashboard (Deployments → Promote to Production).
-
----
-
 ## Rollback Procedure
 
 ### Backend
